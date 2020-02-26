@@ -2,15 +2,26 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_ministerio', { 
+    return queryInterface.createTable('tb_evento', { 
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
-      nome: {
+      ministerio_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'tb_ministerio', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+      },
+      descricao: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      data: {
+        type: Sequelize.DATEONLY,
         allowNull: false,
       },
       created_at: {
@@ -25,6 +36,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_ministerio');
+    return queryInterface.dropTable('tb_evento');
   }
 };

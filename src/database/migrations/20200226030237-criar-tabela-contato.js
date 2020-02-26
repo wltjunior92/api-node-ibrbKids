@@ -2,28 +2,27 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('usuarios', { 
+    return queryInterface.createTable('tb_contato', { 
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
-      nome: {
+      tipo: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      nascimento: {
-        type: Sequelize.DATEONLY,
-        allowNull: false,
-      },
-      email: {
+      contato: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      telefone: {
-        type: Sequelize.STRING,
+      membro_id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: 'tb_membro', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       created_at: {
         type: Sequelize.DATE,
@@ -37,6 +36,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('usuarios');
+    return queryInterface.dropTable('tb_contato');
   }
 };
