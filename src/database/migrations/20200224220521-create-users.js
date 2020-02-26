@@ -33,6 +33,16 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      ativo: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
+      adm: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
       ministerio_id: {
         type: Sequelize.INTEGER,
         allowNull: false,

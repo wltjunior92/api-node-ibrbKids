@@ -9,12 +9,17 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
+      visitante: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
+      },
       nome: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      nome_responsavel: {
-        type: Sequelize.STRING,
+      nascimento: {
+        type: Sequelize.DATEONLY,
         allowNull: false,
       },
       nome_pai: {
@@ -25,9 +30,9 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      nascimento: {
-        type: Sequelize.DATEONLY,
-        allowNull: false,
+      url_foto: {
+        type: Sequelize.STRING,
+        allowNull: true,
       },
       ministerio_id: {
         type: Sequelize.INTEGER,
@@ -35,6 +40,30 @@ module.exports = {
         references: { model: 'tb_ministerio', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
+      },
+      endereco: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      alergias: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      intolerancia: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      restricao_doces_refri: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      restricao_frutas: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      observacoes: {
+        type: Sequelize.STRING,
+        allowNull: true,
       },
       created_at: {
         type: Sequelize.DATE,

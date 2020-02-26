@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_controle_presenca_membro', { 
+    return queryInterface.createTable('tb_controle_presenca_usuario', { 
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -14,10 +14,10 @@ module.exports = {
         allowNull: false,
         default: false,
       },
-      membro_id: {
+      usuario_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'tb_membro', key: 'id' },
+        references: { model: 'tb_usuario', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'NO ACTION',
       },
@@ -47,6 +47,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_controle_presenca_membro');
+    return queryInterface.dropTable('tb_controle_presenca_usuario');
   }
 };

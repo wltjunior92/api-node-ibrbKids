@@ -9,9 +9,18 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
+      sigla: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       nome: {
         type: Sequelize.STRING,
         allowNull: false,
+      },
+      ativo: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
       },
       created_at: {
         type: Sequelize.DATE,
