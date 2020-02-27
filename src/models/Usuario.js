@@ -9,6 +9,8 @@ class Usuario extends Model {
       nascimento: DataTypes.DATE,
       email: DataTypes.STRING,
       telefone: DataTypes.STRING,
+      ativo: DataTypes.BOOLEAN,
+      adm: DataTypes.BOOLEAN,
     }, {
       sequelize,
       tableName: 'tb_usuario'

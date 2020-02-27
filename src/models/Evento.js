@@ -3,6 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 class Evento extends Model {
   static init(sequelize) {
     super.init({
+      tipo: DataTypes.STRING,
       descricao: DataTypes.STRING,
       data: DataTypes.DATE,
     }, {
