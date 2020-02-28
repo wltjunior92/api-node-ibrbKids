@@ -43,10 +43,10 @@ module.exports = {
         allowNull: false,
         defaultValue: false,
       },
-      ministerio_id: {
+      entidade_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'tb_ministerio', key: 'id' },
+        references: { model: 'tb_entidade', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'RESTRICT',
       },

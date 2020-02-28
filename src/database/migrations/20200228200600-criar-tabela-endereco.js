@@ -2,25 +2,39 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_ministerio', { 
+    return queryInterface.createTable('tb_endereco', { 
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
-      sigla: {
+      cidade: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      nome: {
+      estado: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      ativo: {
-        type: Sequelize.BOOLEAN,
+      logradouro: {
+        type: Sequelize.STRING,
         allowNull: false,
-        defaultValue: false,
+      },
+      numero: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      cep: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      crianca_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'tb_crianca', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       created_at: {
         type: Sequelize.DATE,
@@ -34,6 +48,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tb_ministerio');
+    return queryInterface.dropTable('tb_endereco');
   }
 };

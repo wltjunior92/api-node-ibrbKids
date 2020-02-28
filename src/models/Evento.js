@@ -13,7 +13,7 @@ class Evento extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Ministerio, { foreignKey: 'ministerio_id', as: 'ministerio' });
+    this.belongsTo(models.Entidade, { foreignKey: 'entidade_id', as: 'entidade' });
     this.belongsToMany(models.Usuario, {
       through: 'tb_usuario_evento',
       sourceKey: 'id',

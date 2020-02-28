@@ -17,10 +17,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      membro_id: {
+      crianca_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'tb_membro', key: 'id' },
+        references: { model: 'tb_crianca', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },

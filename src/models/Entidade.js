@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 
-class Ministerio extends Model {
+class Entidade extends Model {
   static init(sequelize) {
     super.init({
       sigla: DataTypes.STRING,
@@ -8,14 +8,14 @@ class Ministerio extends Model {
       ativo: DataTypes.BOOLEAN,
     }, {
       sequelize,
-      tableName: 'tb_ministerio'
+      tableName: 'tb_entidade'
     })
   }
 
   static associate(models) {
-    this.hasMany(models.Usuario, { foreignKey: 'ministerio_id', as: 'usuarios' });
-    this.hasMany(models.Evento, { foreignKey: 'ministerio_id', as: 'eventos' });
+    this.hasMany(models.Usuario, { foreignKey: 'entidade_id', as: 'usuarios' });
+    this.hasMany(models.Evento, { foreignKey: 'entidade_id', as: 'eventos' });
   }
 }
 
-module.exports = Ministerio;
+module.exports = Entidade;
