@@ -41,20 +41,6 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      contato: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: 'tb_contato', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'NO ACTION',
-      },
-      endereco: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: 'tb_endereco', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'NO ACTION',
-      },
       alergias: {
         type: Sequelize.STRING,
         allowNull: true,

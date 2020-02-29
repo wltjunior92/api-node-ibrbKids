@@ -3,7 +3,6 @@ const { Model, DataTypes } = require('sequelize');
 class Entidade extends Model {
   static init(sequelize) {
     super.init({
-      sigla: DataTypes.STRING,
       nome: DataTypes.STRING,
       ativo: DataTypes.BOOLEAN,
     }, {

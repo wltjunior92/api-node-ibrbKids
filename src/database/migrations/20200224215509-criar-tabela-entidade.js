@@ -13,10 +13,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      nome_abreviado: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
       ativo: {
         type: Sequelize.BOOLEAN,
         allowNull: false,

@@ -45,7 +45,7 @@ module.exports = {
       },
       entidade_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: { model: 'tb_entidade', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'RESTRICT',
