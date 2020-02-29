@@ -1,7 +1,8 @@
-const { buscarPeloNome } = require('../services/EntidadeService');
+const { buscarPeloNome, enviarEmailConfirmacao } = require('../services/EntidadeService');
 
 const Entidade = require('../models/Entidade');
 const Usuario = require('../models/Usuario');
+
 
 module.exports = {
   async index(req, res) {
@@ -43,14 +44,24 @@ module.exports = {
     const entidadeUsuario = await usuario.getEntidade();
     
     if(!entidadeUsuario) {
-      const entidade = await Entidade.create({
-        nome,
-      });
-  
-      await usuario.setEntidade(entidade);
-      usuario.adm = true;
-      await usuario.save();
-      return res.json(entidade);
+      try {
+        
+        const entidade = await Entidade.create({
+          nome,
+        });
+    
+        await usuario.setEntidade(entidade);
+        usuario.adm = true;
+        await usuario.save();
+        enviarEmailConfirmacao(entidade, usuario);
+        return res.json(entidade);
+
+      } catch (err) {
+        console.log(err);
+        return res.status(400).json({
+          mensagem: 'Erro ao criar entidade',
+        });
+      }
     } else {
       return res.status(400).json({
         mensagem: 'Usuário já está viculado a outra entidade',
